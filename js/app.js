@@ -75,8 +75,7 @@ var goButton = document.querySelector('button')
 var inputBox = document.querySelector('input')
 
 var changeUserInput = function(){
-   userKeyedContent = (inputBox.value);
-   console.log(userKeyedContent);
+   window.location.hash = inputBox.value
 
 }
 
@@ -94,12 +93,12 @@ var controllerRouter = function(evt){
          return
    }
 
-   fetchAndRenderProfileData(changeUserInput)
-   fetchAndRenderReposData(changeUserInput)
+   fetchAndRenderProfileData(inPutedInfo)
+   fetchAndRenderReposData(inPutedInfo)
 
 }
 
 
 controllerRouter()
-window.addEventListener(controllerRouter, 'hashchange')
+window.addEventListener('hashchange' , controllerRouter)
 goButton.addEventListener('click', changeUserInput)
